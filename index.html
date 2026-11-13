@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>나만의 3시간</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>나만의 3시간</h1>
+      <p id="week-label" class="muted"></p>
+    </header>
+
+    <section class="card progress-card">
+      <div class="bar"><div id="bar-fill"></div></div>
+      <p id="progress-text" class="big"></p>
+      <p id="progress-sub" class="muted"></p>
+    </section>
+
+    <section class="card">
+      <h2>타이머</h2>
+      <p id="timer-display" class="timer">00:00:00</p>
+      <input id="timer-memo" type="text" placeholder="무엇을 했나요? (선택)">
+      <button id="timer-btn" class="primary">시작</button>
+    </section>
+
+    <section class="card">
+      <h2>직접 기록</h2>
+      <form id="manual-form" class="row">
+        <input id="manual-date" type="date" required>
+        <input id="manual-min" type="number" min="1" max="1440" placeholder="분" required>
+        <input id="manual-memo" type="text" placeholder="메모 (선택)">
+        <button type="submit">추가</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>이번 주 기록</h2>
+      <ul id="entries"></ul>
+      <p id="entries-empty" class="muted">아직 기록이 없어요.</p>
+    </section>
+
+    <section class="card">
+      <h2>지난 주들</h2>
+      <p id="streak" class="muted"></p>
+      <ul id="history"></ul>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
