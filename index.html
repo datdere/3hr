@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>나만의 3시간</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>나만의 3시간</h1>
+      <p id="week-label" class="muted"></p>
+    </header>
+
+    <section class="card">
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="bar"><div id="bar-fill"></div></div>
+      <p id="progress-text" class="big"></p>
+      <p id="pace" class="muted"></p>
+    </section>
+
+    <section class="card">
+      <h2>방금 가진 나만의 시간</h2>
+      <div class="quick">
+        <button type="button" class="quick-btn" data-min="30">30분</button>
+        <button type="button" class="quick-btn" data-min="60">1시간</button>
+        <button type="button" class="quick-btn" data-min="90">1시간 30분</button>
+        <button type="button" class="quick-btn" data-min="120">2시간</button>
+      </div>
+      <button type="button" id="custom-btn" class="link-btn">직접 입력</button>
+    </section>
+
+    <section class="card">
+      <h2>이번 주 기록</h2>
+      <ul id="entries"></ul>
+      <p id="entries-empty" class="muted">아직 기록이 없어요.</p>
+    </section>
+
+    <section class="card">
+      <h2>지난 주들</h2>
+      <p id="streak" class="muted"></p>
+      <ul id="history"></ul>
+    </section>
+  </main>
+
+  <dialog id="editor">
+    <form id="editor-form" method="dialog">
+      <h2 id="editor-title">직접 입력</h2>
+      <label>날짜
+        <input id="ed-date" type="date" required>
+      </label>
+      <div class="row2">
+        <label>시간
+          <input id="ed-h" type="number" inputmode="numeric" min="0" max="23" value="0">
+        </label>
+        <label>분
+          <input id="ed-m" type="number" inputmode="numeric" min="0" max="59" step="5" value="0">
+        </label>
+      </div>
+      <p id="ed-error" class="error" hidden></p>
+      <div class="actions">
+        <button type="button" id="ed-delete" class="danger-btn">삭제</button>
+        <span class="spacer"></span>
+        <button type="button" id="ed-cancel">취소</button>
+        <button type="submit" class="primary">저장</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" hidden>
+    <span id="toast-text"></span>
+    <button type="button" id="toast-undo">되돌리기</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
